@@ -1,0 +1,80 @@
+* { box-sizing: border-box; }
+            body {
+                margin: 0;
+                font-family: Arial, Helvetica, sans-serif;
+                background: #f4f6f8;
+                color: #333;
+            }
+            header {
+                background: #e30613;
+                padding: 15px 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            header h1 {
+                color: #fff;
+                font-size: 20px;
+                margin: 0 0 10px 0;
+            }
+            nav {
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+            nav button {
+                background: #ffffff;
+                border: none;
+                padding: 8px 14px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-size: 13px;
+                transition: 0.2s;
+            }
+            nav button:hover {
+                background: #f1f1f1;
+            }
+            nav button.active {
+                background: #333;
+                color: #fff;
+            }
+            main {
+                max-width: 1000px;
+                margin: 30px auto;
+                padding: 0 20px;
+            }
+            .tab {
+                display: none;
+                background: #fff;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            }
+            .tab.active {
+                display: block;
+            }
+            .status {
+                background: #fff3f3;
+                border: 1px solid #ffd6d6;
+                color: #a80000;
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                font-size: 14px;
+            }
+            h2 {
+                margin-top: 0;
+                color: #e30613;
+            }
+            ul li {
+                margin-bottom: 8px;
+                font-size: 14px;
+            }
+            a {
+                color: #e30613;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }

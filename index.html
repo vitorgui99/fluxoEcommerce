@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Manutenção E-commerce - Getnet</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./assets/style/css/index.css">
+    </head>
+    <body>
+        <header>
+        <h1>Fluxo de Manutenção - Getnet</h1>
+        <nav>
+            <button class="active" onclick="openTab('menu', this)">Menu</button>
+            <button onclick="openTab('antifraude', this)">Erros Antifraude</button>
+            <button onclick="openTab('bandeira', this)">Erros da Bandeira</button>
+            <button onclick="openTab('genericos', this)">Erros Genéricos</button>
+            <button onclick="openTab('docs', this)">Documentação</button>
+        </nav>
+        </header>
+        <main>
+            <section id="menu" class="tab active">
+                <h2>Manutenção em andamento</h2>
+                <div class="status">
+                    ⚙️ É apenas um breve resumo com alguns caminhos para auxiliar a galera!
+                </div>
+                <p>
+                    Este ambiente está sendo utilizado para manutenção, validações e testes do fluxo de pagamento.
+                </p>
+                <ul>
+                    <li>✔ Cartão de crédito</li>
+                    <li>✔ PIX</li>
+                    <li>✔ Boleto</li>
+                    <li>✔ Comunicação com antifraude</li>
+                </ul>
+            </section>
+            <section id="antifraude" class="tab">
+                <h2>Erros Relacionados ao Antifraude</h2>
+                <ul>
+                    <li><strong>AF-481</strong> – Transação negada pela regra de segurança do sistema antifraude!</li>
+                    <li><strong>AF-231</strong> – Dados do cartão de crédito preenchidos incorretamente!</li>
+                    <li><strong>AF-102</strong> – Transação enviada com o campo "obrigatório" preenchido com um valor nulo ou inválido!</li>
+                    <li><strong>AF-234</strong> – Serviço indisponível no sistema antifraude. Contate a GetNet!</li>
+                </ul>
+                <p>
+                Para maiores informações consulte a documentação oficial.
+                </p>
+            </section>
+            <section id="bandeira" class="tab">
+                <h2>Erros da Bandeira do Cartão</h2>
+                <ul>
+                    <li><strong>CB-101</strong> – Cartão recusado pela bandeira</li>
+                    <li><strong>CB-102</strong> – Cartão expirado</li>
+                    <li><strong>CB-103</strong> – Limite insuficiente</li>
+                    <li><strong>CB-104</strong> – CVV inválido</li>
+                </ul>
+                <p>
+                    Oriente o cliente a entrar em contato com o banco emissor.
+                </p>
+            </section>
+            <section id="genericos" class="tab">
+                <h2>Erros de Crédito/Débito</h2>
+                <ul>
+                    <li><strong>400-Bad Request</strong> – Há algo de errado na requisição!</li>
+                    <li><strong>401-Unauthorized</strong> – Há algo de errado com a autenticação!</li>
+                    <li><strong>402-Business errors</strong> – A operação viola alguma regra de negócio!</li>
+                    <li><strong>403-Forbidden</strong> – Não possui as permissões necessárias para esse recurso!</li>
+                    <li><strong>404-Not found</strong> – Recurso não encontrado!</li>
+                    <li><strong>409-Conflict</strong> – Há um conflito de parâmetros na requisição!</li>
+                    <li><strong>412-Precondition failed</strong> – Parâmetros não encontrados!</li>
+                    <li><strong>422-Unprocessable content</strong> – Entidade improcessável!</li>
+                    <li><strong>500-Internal server error</strong> – Erro no servidor ou na comunicação!</li>
+                    <li><strong>501-Not implemented</strong> – O servidor ainda não tem a função necessária para processar o pedido!</li>
+                    <li><strong>503-Service unavailable</strong> – O serviço está temporariamente fora do ar!</li>
+                    <li><strong>504-Gateway timeout</strong> – Tempo de resposta excedido!</li>
+                    <li><strong>504-Gateway timeout</strong> – Tempo de resposta excedido!</li>
+                </ul>
+                <p>
+                    Para maiores informações consulte a documentação oficial.
+                </p>
+                <h2>Erros de Boleto</h2>
+                <ul>
+                    <li><strong>402-Business error</strong> – Alguma informação de boleto está errada!</li>
+                </ul>
+                <p>
+                    Para maiores informações consulte a documentação oficial.
+                </p>
+            </section>
+            <section id="docs" class="tab">
+                <h2>Documentação e Apoio</h2>
+                <ul>
+                    <li><a href="#">Documentação oficial da API Getnet</a></li>
+                    <li><a href="#">Guia de erros e retornos</a></li>
+                    <li><a href="#">Fluxo de pagamentos (Cartão, PIX e Boleto)</a></li>
+                    <li><a href="#">Ambiente de homologação</a></li>
+                </ul>
+            </section>
+        </main>
+        <script>
+            function openTab(tabId, button) {
+                document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+                document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+                button.classList.add('active');
+            }
+        </script>
+
+    </body>
+</html>

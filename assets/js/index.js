@@ -1,0 +1,1 @@
+console("Olá mundo!")
