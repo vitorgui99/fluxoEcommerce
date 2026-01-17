@@ -8,13 +8,14 @@
     </head>
     <body>
         <header>
-        <h1>Fluxo de Manutenção - Getnet</h1>
+        <h1>Fluxo de Manutenção E-commerce</h1>
         <nav>
             <button class="active" onclick="openTab('menu', this)">Menu</button>
             <button onclick="openTab('antifraude', this)">Erros Antifraude</button>
             <button onclick="openTab('bandeira', this)">Erros da Bandeira</button>
             <button onclick="openTab('genericos', this)">Erros Genéricos</button>
             <button onclick="openTab('docs', this)">Documentação</button>
+            <button onclick="openTab('faq', this)">FAQ</button>
         </nav>
         </header>
         <main>
@@ -24,7 +25,7 @@
                     ⚙️ É apenas um breve resumo com alguns caminhos para auxiliar a galera!
                 </div>
                 <p>
-                    Este ambiente está sendo utilizado para manutenção, validações e testes do fluxo de pagamento.
+                    Este ambiente é um breve resumo que contém atalhos para auxiliar nas eventuais análises técnicas, aproveite e contribua na FAQ.
                 </p>
                 <ul>
                     <li>✔ Cartão de crédito</li>
@@ -93,7 +94,28 @@
                     <li><a href="#">Fluxo de pagamentos (Cartão, PIX e Boleto)</a></li>
                     <li><a href="#">Ambiente de homologação</a></li>
                 </ul>
+
+                <h2>Ambiente de Homologação</h2>
+                <ul>
+                    <li><a href="#">Teste de Cartão</a></li>
+                    <li><a href="#">Teste de Boleto</a></li>
+                    <li><a href="#">Teste de PIX</a></li>
+                    <li><a href="#">Consulta BIN</a></li>
+                </ul>
             </section>
+            <section id="faq" class="tab">
+                <h2>Deixe seu comentário ou sugestão</h2>
+
+                <form id="formContato">
+                    <input type="text" name="nome" placeholder="Seu nome" required>
+                    <input type="email" name="email" placeholder="Seu e-mail" required>
+                    <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+
+                <p id="status"></p>
+            </section>
+
         </main>
         <script>
             function openTab(tabId, button) {
@@ -102,6 +124,28 @@
                 document.getElementById(tabId).classList.add('active');
                 button.classList.add('active');
             }
+
+            document.getElementById('formContato').addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const form = e.target;
+                const data = {
+                    nome: form.nome.value,
+                    email: form.email.value,
+                    mensagem: form.mensagem.value
+                };
+
+                const API_URL = window.location.origin;
+
+                const response = await fetch(`${API_URL}/enviar-mensagem`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                document.getElementById('status').innerText = result.message || result.error;
+            });
         </script>
 
     </body>
