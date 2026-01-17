@@ -137,10 +137,14 @@
 
                 const API_URL = window.location.origin;
 
-                const response = await fetch(`${API_URL}/enviar-mensagem`, {
+                const response = await fetch('https://fluxoecommerce.onrender.com/enviar-mensagem', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify({
+                        nome,
+                        email,
+                        mensagem
+                    })
                 });
 
                 const result = await response.json();
