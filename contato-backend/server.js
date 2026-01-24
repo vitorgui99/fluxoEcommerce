@@ -60,8 +60,8 @@ app.post('/enviar-mensagem', async (req, res) => {
         res.json({ success: true, message: 'Mensagem enviada com sucesso' });
 
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Erro ao enviar e-mail' });
+        console.error('Erro nodemailer:', error);
+        res.status(500).json({ error: error.message });
     }
 });
 
